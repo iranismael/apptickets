@@ -3,6 +3,7 @@
 import { Ticket, TicketStatus } from "@/app/tickets/tickets.interface";
 //import { useToast } from "@/hooks/use-toast";
 //import { Toaster } from "@/components/ui/sonner"
+import { toast } from "sonner"
 
 import { createTicket, updateTicket } from "@/app/tickets/tickets.api";
 import Link from "next/link";
@@ -69,6 +70,10 @@ export const TicketForm = ({ ticket }: { ticket?: Ticket }) => {
         title: "Success",
         description: response.message,
       });*/
+
+      toast.success("Success", {
+        description: response.message,
+      })
 
       router.push("/tickets");
     } catch (error) {
