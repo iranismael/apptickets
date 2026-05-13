@@ -24,11 +24,11 @@ export function TicketFilter({ status }: { status?: string }) {
   return (
     <Tabs value={status} onValueChange={handleStatus} className="mb-6">
       <TabsList>
-        <TabsTrigger value="ALL">All</TabsTrigger>
-        <TabsTrigger value="TODO">Todo</TabsTrigger>
-        <TabsTrigger value="IN_PROGRESS">In Progress</TabsTrigger>
-        <TabsTrigger value="REJECTED">Rejected</TabsTrigger>
-        <TabsTrigger value="DONE">Done</TabsTrigger>
+        <TabsTrigger value="ALL">Todos</TabsTrigger>
+        <TabsTrigger value="TODO">Por hacer</TabsTrigger>
+        <TabsTrigger value="IN_PROGRESS">En progreso</TabsTrigger>
+        <TabsTrigger value="REJECTED">Cancelado</TabsTrigger>
+        <TabsTrigger value="DONE">Finalizado</TabsTrigger>
       </TabsList>
     </Tabs>
   );
