@@ -53,7 +53,7 @@ export default async function TicketsPage({ searchParams }: Params) {
 
         <Button asChild>
           <Link href="/tickets/new">
-            Add new ticket <LucidePlusCircle />
+            Agregar Ticket <LucidePlusCircle />
           </Link>
         </Button>
       </header>
@@ -65,7 +65,7 @@ export default async function TicketsPage({ searchParams }: Params) {
           ? tickets.map((ticket) => (
               <TicketCard key={ticket.id} ticket={ticket} />
             ))
-          : "No tickets found"}
+          : "No se encontraron tickets"}
       </div>
 
       <div className="mt-8">

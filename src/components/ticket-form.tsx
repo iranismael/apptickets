@@ -85,49 +85,49 @@ export const TicketForm = ({ ticket }: { ticket?: Ticket }) => {
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
       <div>
         <Label className="block mb-2" htmlFor="title">
-          Title
+          Titulo
         </Label>
         <Input {...register("title", { required: true })} id="title" />
       </div>
 
       <div>
         <Label className="block mb-2" htmlFor="assigned">
-          Assigned To
+          Asignado a:
         </Label>
         <Input {...register("assignedTo", { required: true })} id="assigned" />
       </div>
 
       <div>
         <Label className="block mb-2" htmlFor="assigned">
-          Status
+          Estado
         </Label>
         <Select defaultValue={ticket?.status} onValueChange={handleChange}>
           <SelectTrigger>
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="TODO">To do</SelectItem>
-            <SelectItem value="IN_PROGRESS">In progress</SelectItem>
-            <SelectItem value="DONE">Done</SelectItem>
-            <SelectItem value="REJECTED">Rejected</SelectItem>
+            <SelectItem value="TODO">Por hacer</SelectItem>
+            <SelectItem value="IN_PROGRESS">En progreso</SelectItem>
+            <SelectItem value="DONE">Finalizado</SelectItem>
+            <SelectItem value="REJECTED">Cancelado</SelectItem>
           </SelectContent>
         </Select>
       </div>
 
       <div>
         <Label className="block mb-2" htmlFor="description">
-          Description
+          Descripcion
         </Label>
         <Textarea {...register("description")} id="description" />
       </div>
 
       <div className="flex justify-between gap-4">
         <Button type="submit">
-          {ticket?.id ? "Edit ticket" : "Create ticket"}
+          {ticket?.id ? "Editar ticket" : "Crear ticket"}
         </Button>
 
         <Button asChild variant="secondary">
-          <Link href={"/tickets"}>Back</Link>
+          <Link href={"/tickets"}>Regresar</Link>
         </Button>
       </div>
     </form>

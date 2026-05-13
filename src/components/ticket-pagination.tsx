@@ -37,7 +37,7 @@ export const TicketPagination = ({ currentPage, totalPages, limit }: Props) => {
         <LucideChevronLeft />
       </Button>
       <span className="font-bold">
-        Page {currentPage} of {totalPages}
+        Página {currentPage} de {totalPages}
       </span>
       <Button
         variant="ghost"

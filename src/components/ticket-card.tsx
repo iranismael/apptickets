@@ -104,7 +104,7 @@ export function TicketCard({ ticket }: { ticket: Ticket }) {
           </Badge>
         </CardContent>
         <CardFooter>
-          <p className="font-bold">Assigned to: {ticket.assignedTo}</p>
+          <p className="font-bold">Asignado: {ticket.assignedTo}</p>
         </CardFooter>
       </Card>
     </Link>
