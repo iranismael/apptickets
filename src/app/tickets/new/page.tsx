@@ -24,7 +24,7 @@ export default async function NewTicket({ params }: Params) {
     <div className="max-w-[400px] w-full p-8 mx-auto">
       <Card>
         <CardHeader>
-          <CardTitle>New ticket</CardTitle>
+          <CardTitle>Nuevo Ticket</CardTitle>
         </CardHeader>
         <CardContent>
           <TicketForm ticket={data?.ticket} />
