@@ -42,7 +42,7 @@ export default async function TicketsPage({ searchParams }: Params) {
 
   ]*/
   const page = Number((await searchParams)?.page || 1);
-  const limit = Number((await searchParams)?.limit || 2);
+  const limit = Number((await searchParams)?.limit || 4);
   const status = (await searchParams)?.status;
 
    const { tickets, totalPages } = await getTickets({ page, limit, status });
