@@ -28,23 +28,27 @@ export const TicketPagination = ({ currentPage, totalPages, limit }: Props) => {
   };
 
   return (
-    <div className="flex justify-center items-center gap-8">
+    <div className="flex justify-center items-center gap-6">
       <Button
         variant="ghost"
+        size="icon"
         disabled={currentPage === 1}
         onClick={() => handlePage(currentPage - 1)}
+        className="rounded-full border border-[#1B2438]/15 disabled:opacity-30"
       >
-        <LucideChevronLeft />
+        <LucideChevronLeft className="size-4 text-[#1B2438]" />
       </Button>
-      <span className="font-bold">
-        Página {currentPage} de {totalPages}
+      <span className="font-mono text-sm text-[#1B2438]/70">
+        Página <span className="font-semibold text-[#1B2438]">{currentPage}</span> de {totalPages}
       </span>
       <Button
         variant="ghost"
+        size="icon"
         disabled={currentPage === totalPages}
         onClick={() => handlePage(currentPage + 1)}
+        className="rounded-full border border-[#1B2438]/15 disabled:opacity-30"
       >
-        <LucideChevronRight />
+        <LucideChevronRight className="size-4 text-[#1B2438]" />
       </Button>
     </div>
   );

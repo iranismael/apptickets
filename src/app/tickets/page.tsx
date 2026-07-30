@@ -47,40 +47,61 @@ export default async function TicketsPage({ searchParams }: Params) {
 
    const { tickets, totalPages } = await getTickets({ page, limit, status });
   return (
-    <div className="w-full px-4 sm:px-8 xl:px-16 2xl:px-24 py-8">
-      <header className="flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-center mb-8">
-        <h1 className="text-3xl font-bold">Tickets</h1>
+    <div className="min-h-screen bg-[#FAF8F3]">
+      <div className="w-full px-4 sm:px-8 xl:px-16 2xl:px-24 py-10">
+        <header className="flex flex-col gap-5 sm:flex-row sm:justify-between sm:items-end mb-10 border-b-2 border-dashed border-[#1B2438]/20 pb-6">
+          <div>
+            <p className="font-mono text-xs tracking-[0.25em] uppercase text-[#1B2438]/50 mb-1">
+              Mesa de ayuda · Panel
+            </p>
+            <h1 className="font-display text-4xl sm:text-5xl font-bold text-[#1B2438] tracking-tight">
+              Tickets
+            </h1>
+          </div>
 
-        <Button asChild className="w-full sm:w-auto">
-          <Link href="/tickets/new">
-            Agregar Ticket <LucidePlusCircle />
-          </Link>
-        </Button>
-      </header>
+          <Button
+            asChild
+            className="w-full sm:w-auto bg-[#1B2438] hover:bg-[#1B2438]/90 text-[#FAF8F3] rounded-full px-6 h-11 font-medium"
+          >
+            <Link href="/tickets/new">
+              Agregar ticket <LucidePlusCircle className="size-4" />
+            </Link>
+          </Button>
+        </header>
 
-      <div className="mb-6 overflow-x-auto">
-        <TicketFilter status={status} />
-      </div>
+        <div className="mb-8 overflow-x-auto">
+          <TicketFilter status={status} />
+        </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {tickets.length > 0
-          ? tickets.map((ticket) => (
-              <TicketCard key={ticket.id} ticket={ticket} />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {tickets.length > 0 ? (
+            tickets.map((ticket, i) => (
+              <TicketCard
+                key={ticket.id}
+                ticket={ticket}
+                index={(page - 1) * limit + i + 1}
+              />
             ))
-          : "No se encontraron tickets"}
-      </div>
+          ) : (
+            <div className="col-span-full text-center py-20">
+              <p className="font-mono text-sm text-[#1B2438]/40 mb-2">
+                ░░░ SIN RESULTADOS ░░░
+              </p>
+              <p className="text-[#1B2438]/60">
+                No se encontraron tickets con este filtro.
+              </p>
+            </div>
+          )}
+        </div>
 
-      <div className="mt-8">
-        <TicketPagination
-          currentPage={page}
-          totalPages={totalPages}
-          limit={limit}
-        />
+        <div className="mt-10">
+          <TicketPagination
+            currentPage={page}
+            totalPages={totalPages}
+            limit={limit}
+          />
+        </div>
       </div>
     </div>
-    
-
-   
-    
   );
 }
